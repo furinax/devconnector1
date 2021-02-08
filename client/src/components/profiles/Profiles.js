@@ -31,9 +31,9 @@ class Profiles extends Component {
         <div classNAme="container">
           <div classNAme="row">
             <div className="col-md-12">
-              <h1 className="display4 text-center">Developer Profiles</h1>
+              <h1 className="display4 text-center">Athlete Profiles</h1>
               <p className="lead text-center">
-                Browse and connect with developers
+                Browse and connect with athletes
               </p>
               {profileItems}
             </div>
