@@ -13,7 +13,7 @@ const ProfileSchema = new Schema({
     required: true,
     max: 40
   },
-  company: {
+  school: {
     type: String
   },
   website: {
@@ -22,18 +22,18 @@ const ProfileSchema = new Schema({
   location: {
     type: String
   },
-  status: {
+  sport: {
     type: String,
     required: true
   },
-  skills: {
+  awards: {
     type: [String],
     required: true
   },
   bio: {
     type: String
   },
-  githubusername: {
+  position: {
     type: String
   },
   experience: [
@@ -42,7 +42,7 @@ const ProfileSchema = new Schema({
         type: String,
         required: true
       },
-      company: {
+      school: {
         type: String,
         required: true
       },

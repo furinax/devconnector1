@@ -5,8 +5,8 @@ module.exports = function validateProfileInput(data) {
   let errors = {};
 
   data.handle = !isEmpty(data.handle) ? data.handle : "";
-  data.status = !isEmpty(data.status) ? data.status : "";
-  data.skills = !isEmpty(data.skills) ? data.skills : "";
+  data.sport = !isEmpty(data.sport) ? data.sport : "";
+  data.awards = !isEmpty(data.awards) ? data.awards : "";
 
   if (!Validator.isLength(data.handle, { min: 2, max: 40 })) {
     errors.handle = "Handle needs to be between 2 and 40";
@@ -16,12 +16,12 @@ module.exports = function validateProfileInput(data) {
     errors.handle = "Profile handle is required";
   }
 
-  if (Validator.isEmpty(data.status)) {
-    errors.status = "Profile status is required";
+  if (Validator.isEmpty(data.sport)) {
+    errors.sport = "Profile sport is required";
   }
 
-  if (Validator.isEmpty(data.skills)) {
-    errors.skills = "Profile skills are required";
+  if (Validator.isEmpty(data.awards)) {
+    errors.awards = "Profile awards are required";
   }
 
   if (!isEmpty(data.website)) {
