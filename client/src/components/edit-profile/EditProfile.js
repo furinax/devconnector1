@@ -16,12 +16,12 @@ class CreateProfile extends Component {
     this.state = {
       displaySocialInputs: false,
       handle: "",
-      company: "",
+      school: "",
       website: "",
       location: "",
-      status: "",
-      skills: "",
-      githubusername: "",
+      sport: "",
+      awards: "",
+      position: "",
       bio: "",
       twitter: "",
       facebook: "",
@@ -46,15 +46,15 @@ class CreateProfile extends Component {
     if (nextProps.profile.profile) {
       const profile = nextProps.profile.profile;
 
-      // Bring skills array back to CSV
-      const skillsCSV = profile.skills.join(",");
+      // Bring awards array back to CSV
+      const awardsCSV = (profile.awards || []).join(",");
 
       // If profile field doesn't exist, make empty string
-      profile.company = !isEmpty(profile.company) ? profile.company : "";
+      profile.school = !isEmpty(profile.school) ? profile.school : "";
       profile.website = !isEmpty(profile.website) ? profile.website : "";
       profile.location = !isEmpty(profile.location) ? profile.location : "";
-      profile.githubusername = !isEmpty(profile.githubusername)
-        ? profile.githubusername
+      profile.position = !isEmpty(profile.position)
+        ? profile.position
         : "";
       profile.bio = !isEmpty(profile.bio) ? profile.bio : "";
       profile.social = !isEmpty(profile.social) ? profile.social : {};
@@ -77,12 +77,12 @@ class CreateProfile extends Component {
       // set component fields state
       this.setState({
         handle: profile.handle,
-        company: profile.company,
+        school: profile.school,
         website: profile.website,
         location: profile.location,
-        status: profile.status,
-        skills: skillsCSV,
-        githubusername: profile.githubusername,
+        sport: profile.sport,
+        awards: awardsCSV,
+        position: profile.position,
         bio: profile.bio,
         twitter: profile.twitter,
         facebook: profile.facebook,
@@ -98,12 +98,12 @@ class CreateProfile extends Component {
 
     const profileData = {
       handle: this.state.handle,
-      company: this.state.company,
+      school: this.state.school,
       website: this.state.website,
       location: this.state.location,
-      status: this.state.status,
-      skills: this.state.skills,
-      githubusername: this.state.githubusername,
+      sport: this.state.sport,
+      awards: this.state.awards,
+      position: this.state.position,
       bio: this.state.bio,
       twitter: this.state.twitter,
       facebook: this.state.facebook,
@@ -171,16 +171,10 @@ class CreateProfile extends Component {
       );
     }
 
-    // select options for status
+    // select options for sport
     const options = [
-      { label: "* Select Professional Status", value: 0 },
-      { label: "Developer", value: "Developer" },
-      { label: "Junior Developer", value: "Junior Developer" },
-      { label: "Senior Developer", value: "Senior Developer" },
-      { label: "Manager", value: "Manager" },
-      { label: "Student or Learning", value: "Student or Learning" },
-      { label: "Instructor or Teacher", value: "Instructor or Teacher" },
-      { label: "Intern", value: "Intern" },
+      { label: "* Select Sport", value: 0 },
+      { label: "Football", value: "Football" },
       { label: "Other", value: "Other" }
     ];
 
@@ -201,24 +195,24 @@ class CreateProfile extends Component {
                   value={this.state.handle}
                   onChange={this.onChange}
                   error={errors.handle}
-                  info="A unique handle for your profile URL. Your full name, company name, nickname"
+                  info="A unique handle for your profile URL."
                 />
                 <SelectListGroup
-                  placeholder="Status"
-                  name="status"
-                  value={this.state.status}
+                  placeholder="Sport"
+                  name="sport"
+                  value={this.state.sport}
                   onChange={this.onChange}
-                  error={errors.status}
+                  error={errors.sport}
                   options={options}
-                  info="Give us an idea of where you are at in your career"
+                  info="Which sport you are looking to build a career in"
                 />
                 <TextFieldGroup
-                  placeholder="Company"
-                  name="company"
-                  value={this.state.company}
+                  placeholder="School"
+                  name="school"
+                  value={this.state.school}
                   onChange={this.onChange}
-                  error={errors.company}
-                  info="This could be your own company or the company you work for"
+                  error={errors.school}
+                  info="The school you currently attend"
                 />
                 <TextFieldGroup
                   placeholder="Website"
@@ -237,20 +231,20 @@ class CreateProfile extends Component {
                   info="City or city & state suggested (eg. Boston, MA)"
                 />
                 <TextFieldGroup
-                  placeholder="* Skills"
-                  name="skills"
-                  value={this.state.skills}
+                  placeholder="* Awards"
+                  name="awards"
+                  value={this.state.awards}
                   onChange={this.onChange}
-                  error={errors.skills}
-                  info="Please use comma separated values (eg. HTML,CSS, Javascript, PHP)"
+                  error={errors.awards}
+                  info="Please use comma separated values (Superbowl LV winner, Superbowl LV MVP, NFL MVP 2017)"
                 />
                 <TextFieldGroup
-                  placeholder="Github Username"
-                  name="githubusername"
-                  value={this.state.githubusername}
+                  placeholder="Main Position"
+                  name="position"
+                  value={this.state.position}
                   onChange={this.onChange}
-                  error={errors.githubusername}
-                  info="If you want your latest repos and a Github link, include your username"
+                  error={errors.position}
+                  info="Your main position on the team (Running back, Defensive line)"
                 />
                 <TextAreaFieldGroup
                   placeholder="Short Bio"

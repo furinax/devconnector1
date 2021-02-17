@@ -21,9 +21,9 @@ class ProfileHeader extends Component {
             <div className="text-center">
               <h1 className="display-4 text-center">{profile.user.name}</h1>
               <p className="lead text-center">
-                {profile.status}{" "}
-                {isEmpty(profile.company) ? null : (
-                  <span>at {profile.company}</span>
+                {profile.sport}{" "}
+                {isEmpty(profile.school) ? null : (
+                  <span>at {profile.school}</span>
                 )}
               </p>
               {isEmpty(profile.location) ? null : <p>{profile.location}</p>}

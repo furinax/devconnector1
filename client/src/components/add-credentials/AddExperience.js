@@ -10,7 +10,7 @@ class AddExperience extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      company: "",
+      school: "",
       title: "",
       location: "",
       from: "",
@@ -36,7 +36,7 @@ class AddExperience extends Component {
     e.preventDefault();
 
     const expData = {
-      company: this.state.company,
+      school: this.state.school,
       title: this.state.title,
       location: this.state.location,
       from: this.state.from,
@@ -77,11 +77,11 @@ class AddExperience extends Component {
               <small className="d-block-pb-3">* = required fields</small>
               <form onSubmit={this.onSubmit}>
                 <TextFieldGroup
-                  placeholder="* Company"
-                  name="company"
-                  value={this.state.company}
+                  placeholder="* School"
+                  name="school"
+                  value={this.state.school}
                   onChange={this.onChange}
-                  error={errors.company}
+                  error={errors.school}
                 />
                 <TextFieldGroup
                   placeholder="* Job title"
