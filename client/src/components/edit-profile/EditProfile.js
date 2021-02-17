@@ -47,7 +47,7 @@ class CreateProfile extends Component {
       const profile = nextProps.profile.profile;
 
       // Bring awards array back to CSV
-      const awardsCSV = profile.awards.join(",");
+      const awardsCSV = (profile.awards || []).join(",");
 
       // If profile field doesn't exist, make empty string
       profile.school = !isEmpty(profile.school) ? profile.school : "";
